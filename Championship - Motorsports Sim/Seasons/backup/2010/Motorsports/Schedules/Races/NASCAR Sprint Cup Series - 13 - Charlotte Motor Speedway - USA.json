@@ -1,0 +1,728 @@
+{
+    "Series": "NASCAR Sprint Cup Series",
+    "Order": "13",
+    "Circuit": "Charlotte Motor Speedway - USA",
+    "Event": "Feature",
+    "Weather": "Clear",
+    "Lap Record": "1:00.00 - 2010 - Driver (Team)",
+    "Qualifying Results": [
+        {
+            "Position": 1,
+            "Driver": "J. Johnson",
+            "Team": "#48 - Hendrick Motorsports",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Lowe's",
+            "Time": "0:15.61"
+        },
+        {
+            "Position": 2,
+            "Driver": "K. Harvick",
+            "Team": "#29 - Richard Childress Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Pennzoil",
+            "Time": "0:15.75"
+        },
+        {
+            "Position": 3,
+            "Driver": "J. Logano",
+            "Team": "#20 - Joe Gibbs Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "The Home Depot",
+            "Time": "0:16.29"
+        },
+        {
+            "Position": 4,
+            "Driver": "C. Edwards",
+            "Team": "#99 - Roush Fenway Racing",
+            "Supplier": "Ford",
+            "Sponsor": "Aflac",
+            "Time": "0:16.91"
+        },
+        {
+            "Position": 5,
+            "Driver": "J. P. Montoya",
+            "Team": "#42 - Earnhardt Ganassi Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Target",
+            "Time": "0:17.16"
+        },
+        {
+            "Position": 6,
+            "Driver": "J. McMurray",
+            "Team": "#1  - Earnhardt Ganassi Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Bass Pro Shops",
+            "Time": "0:17.31"
+        },
+        {
+            "Position": 7,
+            "Driver": "K. Kahne",
+            "Team": "#9  - Richard Petty Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Budweiser",
+            "Time": "0:17.34"
+        },
+        {
+            "Position": 8,
+            "Driver": "B. Keselowski",
+            "Team": "#12 - Penske Championship Racing",
+            "Supplier": "Dodge",
+            "Sponsor": "Verizon",
+            "Time": "0:17.37"
+        },
+        {
+            "Position": 9,
+            "Driver": "Ky. Busch",
+            "Team": "#18 - Joe Gibbs Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "M&M's",
+            "Time": "0:17.59"
+        },
+        {
+            "Position": 10,
+            "Driver": "J. Burton",
+            "Team": "#31 - Richard Childress Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Caterpillar",
+            "Time": "0:17.59"
+        },
+        {
+            "Position": 11,
+            "Driver": "M. Truex Jr.",
+            "Team": "#56 - Michael Waltrip Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "NAPA",
+            "Time": "0:17.67"
+        },
+        {
+            "Position": 12,
+            "Driver": "D. Hamlin",
+            "Team": "#11 - Joe Gibbs Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "FedEx",
+            "Time": "0:18.16"
+        },
+        {
+            "Position": 13,
+            "Driver": "A. J. Allmendinger",
+            "Team": "#43 - Richard Petty Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Best Buy",
+            "Time": "0:18.24"
+        },
+        {
+            "Position": 14,
+            "Driver": "C. Bowyer",
+            "Team": "#33 - Richard Childress Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Cheerios",
+            "Time": "0:18.33"
+        },
+        {
+            "Position": 15,
+            "Driver": "D. Ragan",
+            "Team": "#6  - Roush Fenway Racing",
+            "Supplier": "Ford",
+            "Sponsor": "UPS",
+            "Time": "0:18.41"
+        },
+        {
+            "Position": 16,
+            "Driver": "G. Biffle",
+            "Team": "#16 - Roush Fenway Racing",
+            "Supplier": "Ford",
+            "Sponsor": "3M",
+            "Time": "0:18.47"
+        },
+        {
+            "Position": 17,
+            "Driver": "D. Reutimann",
+            "Team": "#00 - Michael Waltrip Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "Aaron's",
+            "Time": "0:18.65"
+        },
+        {
+            "Position": 18,
+            "Driver": "M. Ambrose",
+            "Team": "#47 - JTG Daugherty Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "Kroger",
+            "Time": "0:18.89"
+        },
+        {
+            "Position": 19,
+            "Driver": "S. Hornish Jr.",
+            "Team": "#77 - Penske Championship Racing",
+            "Supplier": "Dodge",
+            "Sponsor": "Mobil 1",
+            "Time": "0:19.03"
+        },
+        {
+            "Position": 20,
+            "Driver": "J. Gordon",
+            "Team": "#24 - Hendrick Motorsports",
+            "Supplier": "Chevrolet",
+            "Sponsor": "DuPont",
+            "Time": "0:19.29"
+        },
+        {
+            "Position": 21,
+            "Driver": "T. Stewart",
+            "Team": "#14 - Stewart-Haas Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Office Depot",
+            "Time": "0:19.45"
+        },
+        {
+            "Position": 22,
+            "Driver": "R. Newman",
+            "Team": "#39 - Stewart-Haas Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "U.S. Army",
+            "Time": "0:19.49"
+        },
+        {
+            "Position": 23,
+            "Driver": "M. Kenseth",
+            "Team": "#17 - Roush Fenway Racing",
+            "Supplier": "Ford",
+            "Sponsor": "Crown Royal",
+            "Time": "0:19.57"
+        },
+        {
+            "Position": 24,
+            "Driver": "M. Martin",
+            "Team": "#5  - Hendrick Motorsports",
+            "Supplier": "Chevrolet",
+            "Sponsor": "GoDaddy",
+            "Time": "0:19.60"
+        },
+        {
+            "Position": 25,
+            "Driver": "D. Earnhardt Jr.",
+            "Team": "#88 - Hendrick Motorsports",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Mountain Dew",
+            "Time": "0:19.80"
+        },
+        {
+            "Position": 26,
+            "Driver": "J. Andretti",
+            "Team": "#34 - Front Row Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Window World",
+            "Time": "0:19.80"
+        },
+        {
+            "Position": 27,
+            "Driver": "D. Blaney",
+            "Team": "#66 - Prism Motorsports",
+            "Supplier": "Toyota",
+            "Sponsor": "",
+            "Time": "0:19.84"
+        },
+        {
+            "Position": 28,
+            "Driver": "K. Busch",
+            "Team": "#2  - Penske Championship Racing",
+            "Supplier": "Dodge",
+            "Sponsor": "Miller Lite",
+            "Time": "0:19.94"
+        },
+        {
+            "Position": 29,
+            "Driver": "B. Vickers",
+            "Team": "#83 - Red Bull Racing Team",
+            "Supplier": "Toyota",
+            "Sponsor": "Red Bull",
+            "Time": "0:19.97"
+        },
+        {
+            "Position": 30,
+            "Driver": "P. Menard",
+            "Team": "#98 - Richard Petty Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Menards",
+            "Time": "0:20.24"
+        },
+        {
+            "Position": 31,
+            "Driver": "A. Almirola",
+            "Team": "#09 - Phoenix Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "",
+            "Time": "0:20.52"
+        },
+        {
+            "Position": 32,
+            "Driver": "T. Cook",
+            "Team": "#46 - Whitney Motorsports",
+            "Supplier": "Dodge",
+            "Sponsor": "",
+            "Time": "0:20.55"
+        },
+        {
+            "Position": 33,
+            "Driver": "S. Speed",
+            "Team": "#82 - Red Bull Racing Team",
+            "Supplier": "Toyota",
+            "Sponsor": "Red Bull",
+            "Time": "0:20.57"
+        },
+        {
+            "Position": 34,
+            "Driver": "E. Sadler",
+            "Team": "#19 - Richard Petty Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Stanley Tools",
+            "Time": "0:20.97"
+        },
+        {
+            "Position": 35,
+            "Driver": "R. Smith",
+            "Team": "#78 - Furniture Row Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Furniture Row",
+            "Time": "0:21.07"
+        },
+        {
+            "Position": 36,
+            "Driver": "M. Papis",
+            "Team": "#13 - Germain Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "GEICO",
+            "Time": "0:21.32"
+        },
+        {
+            "Position": 37,
+            "Driver": "M. McDowell",
+            "Team": "#55 - Prism Motorsports",
+            "Supplier": "Toyota",
+            "Sponsor": "",
+            "Time": "0:21.33"
+        },
+        {
+            "Position": 38,
+            "Driver": "J. Nemechek",
+            "Team": "#87 - NEMCO Motorsports",
+            "Supplier": "Toyota",
+            "Sponsor": "",
+            "Time": "0:21.70"
+        },
+        {
+            "Position": 39,
+            "Driver": "B. Labonte",
+            "Team": "#71 - The Racer's Group Motorsports",
+            "Supplier": "Chevrolet",
+            "Sponsor": "TaxSlayer",
+            "Time": "0:21.78"
+        },
+        {
+            "Position": 40,
+            "Driver": "T. Kvapil",
+            "Team": "#37 - Front Row Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "ExtenZe",
+            "Time": "0:22.27"
+        },
+        {
+            "Position": 41,
+            "Driver": "R. Gordon",
+            "Team": "#7  - Robby Gordon Motorsports",
+            "Supplier": "Toyota",
+            "Sponsor": "Monster Energy",
+            "Time": "0:22.31"
+        },
+        {
+            "Position": 42,
+            "Driver": "B. Said",
+            "Team": "#26 - Latitude 43 Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Window World",
+            "Time": "0:22.55"
+        },
+        {
+            "Position": 43,
+            "Driver": "R. Richardson Jr.",
+            "Team": "#38 - Front Row Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Mahindra Tractors",
+            "Time": "0:22.75"
+        }
+    ],
+    "DNQ Drivers": [
+        {
+            "Position": 44,
+            "Driver": "M. Bliss",
+            "Team": "#36 - Tommy Baldwin Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Wave Energy",
+            "Time": "0:21.90"
+        },
+        {
+            "Position": 45,
+            "Driver": "N. Benning",
+            "Team": "#57 - Norm Benning Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "",
+            "Time": "0:25.21"
+        }
+    ],
+    "Race Results": [
+        {
+            "Position": 1,
+            "Driver": "J. Johnson",
+            "Team": "#48 - Hendrick Motorsports",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Lowe's",
+            "Time": "104:35.73"
+        },
+        {
+            "Position": 2,
+            "Driver": "K. Harvick",
+            "Team": "#29 - Richard Childress Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Pennzoil",
+            "Time": "108:55.36"
+        },
+        {
+            "Position": 3,
+            "Driver": "C. Bowyer",
+            "Team": "#33 - Richard Childress Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Cheerios",
+            "Time": "121:16.86"
+        },
+        {
+            "Position": 4,
+            "Driver": "J. P. Montoya",
+            "Team": "#42 - Earnhardt Ganassi Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Target",
+            "Time": "122:56.34"
+        },
+        {
+            "Position": 5,
+            "Driver": "K. Kahne",
+            "Team": "#9  - Richard Petty Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Budweiser",
+            "Time": "130:02.27"
+        },
+        {
+            "Position": 6,
+            "Driver": "Ky. Busch",
+            "Team": "#18 - Joe Gibbs Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "M&M's",
+            "Time": "130:21.28"
+        },
+        {
+            "Position": 7,
+            "Driver": "C. Edwards",
+            "Team": "#99 - Roush Fenway Racing",
+            "Supplier": "Ford",
+            "Sponsor": "Aflac",
+            "Time": "130:25.48"
+        },
+        {
+            "Position": 8,
+            "Driver": "J. Burton",
+            "Team": "#31 - Richard Childress Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Caterpillar",
+            "Time": "137:48.78"
+        },
+        {
+            "Position": 9,
+            "Driver": "D. Ragan",
+            "Team": "#6  - Roush Fenway Racing",
+            "Supplier": "Ford",
+            "Sponsor": "UPS",
+            "Time": "137:59.93"
+        },
+        {
+            "Position": 10,
+            "Driver": "D. Reutimann",
+            "Team": "#00 - Michael Waltrip Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "Aaron's",
+            "Time": "138:46.93"
+        },
+        {
+            "Position": 11,
+            "Driver": "D. Hamlin",
+            "Team": "#11 - Joe Gibbs Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "FedEx",
+            "Time": "139:56.77"
+        },
+        {
+            "Position": 12,
+            "Driver": "T. Stewart",
+            "Team": "#14 - Stewart-Haas Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Office Depot",
+            "Time": "141:50.60"
+        },
+        {
+            "Position": 13,
+            "Driver": "J. Gordon",
+            "Team": "#24 - Hendrick Motorsports",
+            "Supplier": "Chevrolet",
+            "Sponsor": "DuPont",
+            "Time": "144:03.50"
+        },
+        {
+            "Position": 14,
+            "Driver": "B. Keselowski",
+            "Team": "#12 - Penske Championship Racing",
+            "Supplier": "Dodge",
+            "Sponsor": "Verizon",
+            "Time": "144:34.84"
+        },
+        {
+            "Position": 15,
+            "Driver": "M. Kenseth",
+            "Team": "#17 - Roush Fenway Racing",
+            "Supplier": "Ford",
+            "Sponsor": "Crown Royal",
+            "Time": "145:07.58"
+        },
+        {
+            "Position": 16,
+            "Driver": "J. McMurray",
+            "Team": "#1  - Earnhardt Ganassi Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Bass Pro Shops",
+            "Time": "147:19.32"
+        },
+        {
+            "Position": 17,
+            "Driver": "R. Newman",
+            "Team": "#39 - Stewart-Haas Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "U.S. Army",
+            "Time": "148:42.68"
+        },
+        {
+            "Position": 18,
+            "Driver": "G. Biffle",
+            "Team": "#16 - Roush Fenway Racing",
+            "Supplier": "Ford",
+            "Sponsor": "3M",
+            "Time": "150:42.24"
+        },
+        {
+            "Position": 19,
+            "Driver": "M. Truex Jr.",
+            "Team": "#56 - Michael Waltrip Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "NAPA",
+            "Time": "154:14.30"
+        },
+        {
+            "Position": 20,
+            "Driver": "K. Busch",
+            "Team": "#2  - Penske Championship Racing",
+            "Supplier": "Dodge",
+            "Sponsor": "Miller Lite",
+            "Time": "155:15.51"
+        },
+        {
+            "Position": 21,
+            "Driver": "A. J. Allmendinger",
+            "Team": "#43 - Richard Petty Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Best Buy",
+            "Time": "157:54.15"
+        },
+        {
+            "Position": 22,
+            "Driver": "J. Andretti",
+            "Team": "#34 - Front Row Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Window World",
+            "Time": "168:43.24"
+        },
+        {
+            "Position": 23,
+            "Driver": "S. Hornish Jr.",
+            "Team": "#77 - Penske Championship Racing",
+            "Supplier": "Dodge",
+            "Sponsor": "Mobil 1",
+            "Time": "170:28.85"
+        },
+        {
+            "Position": 24,
+            "Driver": "D. Earnhardt Jr.",
+            "Team": "#88 - Hendrick Motorsports",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Mountain Dew",
+            "Time": "172:22.36"
+        },
+        {
+            "Position": 25,
+            "Driver": "P. Menard",
+            "Team": "#98 - Richard Petty Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Menards",
+            "Time": "174:38.50"
+        },
+        {
+            "Position": 26,
+            "Driver": "B. Labonte",
+            "Team": "#71 - The Racer's Group Motorsports",
+            "Supplier": "Chevrolet",
+            "Sponsor": "TaxSlayer",
+            "Time": "178:08.48"
+        },
+        {
+            "Position": 27,
+            "Driver": "B. Vickers",
+            "Team": "#83 - Red Bull Racing Team",
+            "Supplier": "Toyota",
+            "Sponsor": "Red Bull",
+            "Time": "181:31.26"
+        },
+        {
+            "Position": 28,
+            "Driver": "M. Papis",
+            "Team": "#13 - Germain Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "GEICO",
+            "Time": "181:38.73"
+        },
+        {
+            "Position": 29,
+            "Driver": "R. Gordon",
+            "Team": "#7  - Robby Gordon Motorsports",
+            "Supplier": "Toyota",
+            "Sponsor": "Monster Energy",
+            "Time": "191:11.75"
+        },
+        {
+            "Position": 30,
+            "Driver": "T. Kvapil",
+            "Team": "#37 - Front Row Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "ExtenZe",
+            "Time": "200:00.00"
+        }
+    ],
+    "DNF Drivers": [
+        {
+            "Position": "DNF",
+            "Driver": "J. Logano",
+            "Team": "#20 - Joe Gibbs Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "The Home Depot",
+            "Reason": "Collision"
+        },
+        {
+            "Position": "DNF",
+            "Driver": "M. Ambrose",
+            "Team": "#47 - JTG Daugherty Racing",
+            "Supplier": "Toyota",
+            "Sponsor": "Kroger",
+            "Reason": "Retirement"
+        },
+        {
+            "Position": "DNF",
+            "Driver": "M. Martin",
+            "Team": "#5  - Hendrick Motorsports",
+            "Supplier": "Chevrolet",
+            "Sponsor": "GoDaddy",
+            "Reason": "Collision"
+        },
+        {
+            "Position": "DNF",
+            "Driver": "D. Blaney",
+            "Team": "#66 - Prism Motorsports",
+            "Supplier": "Toyota",
+            "Sponsor": "",
+            "Reason": "Retirement"
+        },
+        {
+            "Position": "DNF",
+            "Driver": "A. Almirola",
+            "Team": "#09 - Phoenix Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "",
+            "Reason": "Retirement"
+        },
+        {
+            "Position": "DNF",
+            "Driver": "T. Cook",
+            "Team": "#46 - Whitney Motorsports",
+            "Supplier": "Dodge",
+            "Sponsor": "",
+            "Reason": "Crash"
+        },
+        {
+            "Position": "DNF",
+            "Driver": "S. Speed",
+            "Team": "#82 - Red Bull Racing Team",
+            "Supplier": "Toyota",
+            "Sponsor": "Red Bull",
+            "Reason": "Crash"
+        },
+        {
+            "Position": "DNF",
+            "Driver": "E. Sadler",
+            "Team": "#19 - Richard Petty Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Stanley Tools",
+            "Reason": "Crash"
+        },
+        {
+            "Position": "DNF",
+            "Driver": "R. Smith",
+            "Team": "#78 - Furniture Row Racing",
+            "Supplier": "Chevrolet",
+            "Sponsor": "Furniture Row",
+            "Reason": "Retirement"
+        },
+        {
+            "Position": "DNF",
+            "Driver": "M. McDowell",
+            "Team": "#55 - Prism Motorsports",
+            "Supplier": "Toyota",
+            "Sponsor": "",
+            "Reason": "Retirement"
+        },
+        {
+            "Position": "DNF",
+            "Driver": "J. Nemechek",
+            "Team": "#87 - NEMCO Motorsports",
+            "Supplier": "Toyota",
+            "Sponsor": "",
+            "Reason": "Retirement"
+        },
+        {
+            "Position": "DNF",
+            "Driver": "B. Said",
+            "Team": "#26 - Latitude 43 Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Window World",
+            "Reason": "Retirement"
+        },
+        {
+            "Position": "DNF",
+            "Driver": "R. Richardson Jr.",
+            "Team": "#38 - Front Row Motorsports",
+            "Supplier": "Ford",
+            "Sponsor": "Mahindra Tractors",
+            "Reason": "Crash"
+        }
+    ],
+    "Fastest Lap": {
+        "Driver": "K. Harvick",
+        "Time": "0:22.36"
+    },
+    "Most Laps Led": {
+        "Driver": "C. Bowyer",
+        "Laps": 202
+    }
+}

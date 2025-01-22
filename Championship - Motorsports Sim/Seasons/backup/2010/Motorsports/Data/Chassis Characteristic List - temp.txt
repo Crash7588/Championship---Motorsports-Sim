@@ -1,0 +1,12 @@
+ShortTrackSpecialist - performance boost on Short Tracks
+StreetTrackSpecialist - performance boost on Street Tracks
+SuperspeedwaySpecialist - performance boost on Superspeedway
+
+ComplexDesign - temporarily decreases driver experience
+SimpleDesign - temporarily increases driver experience
+
+DifficultToDrive - lower driver experience gain
+EasyToDrive - higher driver experience gain
+
+LowGrip
+HighGrip
