@@ -411,7 +411,7 @@ def simulate_qualifying(team, weather_condition, discipline, event, grid_size, c
     # List to store qualifying results for all drivers in the team
     qualifying_results = []
 
-    # Create a copy of the drivers list to iterate over (shallow copy)
+    # Create a copy of the drivers list to iterate over
     drivers_copy = team.drivers[:]
 
     for driver in drivers_copy:
@@ -563,30 +563,29 @@ def simulate_qualifying(team, weather_condition, discipline, event, grid_size, c
 
     return qualified_drivers, dnq_drivers
 
-def simulate_race(driver, team, starting_position, weather_condition, discipline, circuit_type, qualifying_results, sorted_qualifying_results, track_characteristics, iteration):
+def simulate_race(driver, team, starting_position, weather_condition, discipline, circuit_type, qualifying_results, sorted_qualifying_results, track_characteristics):
     # Reset qualifying attributes for the race simulation
     driver.fantastic_qualifying = False  # Reset fantastic_qualifying attribute
     driver.shocking_qualifying = False  # Reset shocking_qualifying attribute
 
-    if iteration == 0:
-        race_trait_modifier(driver, starting_position, qualifying_results, track_characteristics)
+    race_trait_modifier(driver, starting_position, qualifying_results, track_characteristics)
 
     if not team.drivers:
         # If there are no drivers in the team, return a performance score of 0
         return 0
 
-    # collided_drivers = []
-    # if driver.dnf != "Collision":
-    #     # Assuming sorted_qualifying_results is already sorted by qualifying position
-    #     collided_drivers = simulate_collision(sorted_qualifying_results)
+    collided_drivers = []
+    if driver.dnf != "Collision":
+        # Assuming sorted_qualifying_results is already sorted by qualifying position
+        collided_drivers = simulate_collision(sorted_qualifying_results)
     
-    # if collided_drivers:
-    #     # If there is a collision, mark all affected drivers as DNF
-    #     for collided_driver in collided_drivers:
-    #         collided_driver.dnf = "Collision"
-    #         # Return a performance score of 0 for these drivers
-    #         if collided_driver == driver:
-    #             return 0
+    if collided_drivers:
+        # If there is a collision, mark all affected drivers as DNF
+        for collided_driver in collided_drivers:
+            collided_driver.dnf = "Collision"
+            # Return a performance score of 0 for these drivers
+            if collided_driver == driver:
+                return 0
 
     if simulate_crash(driver) == "Crash":
         driver.dnf = "Crash"
@@ -824,20 +823,20 @@ def simulate_race(driver, team, starting_position, weather_condition, discipline
 
     # Calculate penalty factor / randomness based on starting position
     if circuit_type in ['Superspeedway']:
-        penalty_factor = (starting_position - (starting_position * 0.25)) * 6
+        penalty_factor = (starting_position - (starting_position * 0.25)) * 4.5
         randomness *= 1.7
     elif circuit_type in ['Oval']:
-        penalty_factor = (starting_position - (starting_position * 0.25)) * 7
+        penalty_factor = (starting_position - (starting_position * 0.25)) * 5.5
         randomness *= 1.5
     elif circuit_type in ['Short Track']:
-        penalty_factor = (starting_position - (starting_position * 0.25)) * 8
+        penalty_factor = (starting_position - (starting_position * 0.25)) * 6.5
         randomness *= 1.35
     elif circuit_type in ['Road Course', 'Grand Prix']:
-        penalty_factor = (starting_position - (starting_position * 0.25)) * 9
+        penalty_factor = (starting_position - (starting_position * 0.25)) * 7
     elif circuit_type in ['Street Track']:
-        penalty_factor = (starting_position - (starting_position * 0.25)) * 10
+        penalty_factor = (starting_position - (starting_position * 0.25)) * 8
     else:
-        penalty_factor = (starting_position - (starting_position * 0.25)) * 8.5
+        penalty_factor = (starting_position - (starting_position * 0.25)) * 7
     
     if discipline == 'StockCar':
         randomness *= 1.15
@@ -897,41 +896,41 @@ def simulate_crash(driver):
     else:
         return ""
 
-# def simulate_collision(sorted_qualifying_results):
-#     # List to store the drivers involved in collisions
-#     collided_drivers = []
+def simulate_collision(sorted_qualifying_results):
+    # List to store the drivers involved in collisions
+    collided_drivers = []
 
-#     # Iterate over the sorted qualifying results to check for proximity and collision chances
-#     for i, ((team_name, driver_name), (driver, qualifying_result)) in enumerate(sorted_qualifying_results):
-#         # Proximity threshold: Assume a driver is at risk of collision if they are within 3 positions
-#         proximity_candidates = []
+    # Iterate over the sorted qualifying results to check for proximity and collision chances
+    for i, ((team_name, driver_name), (driver, qualifying_result)) in enumerate(sorted_qualifying_results):
+        # Proximity threshold: Assume a driver is at risk of collision if they are within 3 positions
+        proximity_candidates = []
         
-#         for j in range(i + 1, len(sorted_qualifying_results)):
-#             if abs(i - j) <= 3:
-#                 proximity_candidates.append(j)
+        for j in range(i + 1, len(sorted_qualifying_results)):
+            if abs(i - j) <= 3:
+                proximity_candidates.append(j)
 
-#         # Randomly select one or more `j` from the candidates, if any
-#         if proximity_candidates:
-#             num_collisions = min(4, len(proximity_candidates))
-#             weights = [0.5, 0.2, 0.1, 0.05][:num_collisions]
-#             selected_js = random.sample(proximity_candidates, k=random.choices(range(1, num_collisions + 1), weights=weights)[0])
+        # Randomly select one or more `j` from the candidates, if any
+        if proximity_candidates:
+            num_collisions = min(4, len(proximity_candidates))
+            weights = [0.5, 0.2, 0.1, 0.05][:num_collisions]
+            selected_js = random.sample(proximity_candidates, k=random.choices(range(1, num_collisions + 1), weights=weights)[0])
 
-#             for selected_j in selected_js:
-#                 _, (other_driver, _) = sorted_qualifying_results[selected_j]
+            for selected_j in selected_js:
+                _, (other_driver, _) = sorted_qualifying_results[selected_j]
 
-#                 # Simulate a collision chance
-#                 skill_to_speed_difference = (driver.skill - driver.speed) / 100
-#                 crash_probability = min(max(0.65 + skill_to_speed_difference, 0), 0.999)
+                # Simulate a collision chance
+                skill_to_speed_difference = (driver.skill - driver.speed) / 100
+                crash_probability = min(max(0.65 + skill_to_speed_difference, 0), 0.999)
 
-#                 # If a collision occurs (chance is met), mark both drivers as involved
-#                 if random.uniform(0, 1) > min(driver.skill / 100, 0.999) and random.uniform(0, 1) > crash_probability:
-#                         if driver.dnf == "" and other_driver.dnf == "":  # Avoid marking the driver multiple times
-#                             driver.dnf = "Collision"
-#                             other_driver.dnf = "Collision"
-#                             collided_drivers.append(driver)
-#                             collided_drivers.append(other_driver)
+                # If a collision occurs (chance is met), mark both drivers as involved
+                if random.uniform(0, 1) > min(driver.skill / 100, 0.999) and random.uniform(0, 1) > crash_probability:
+                        if driver.dnf == "" and other_driver.dnf == "":  # Avoid marking the driver multiple times
+                            driver.dnf = "Collision"
+                            other_driver.dnf = "Collision"
+                            collided_drivers.append(driver)
+                            collided_drivers.append(other_driver)
 
-#     return collided_drivers
+    return collided_drivers
 
 
 def calculate_fastest_lap_and_laps_led(sorted_qualifying_results, dnq_results, sorted_race_results, total_laps, base_time):
@@ -1429,39 +1428,17 @@ def main():
     # Race
     race_results = []
     position_changes = []
-    iteration = 0  # Initialize iteration before using it
     for i, ((team_name, driver_name), _) in enumerate(sorted_qualifying_results):
         team = teams[team_name]
         starting_position = i + 1
         if team.drivers:  # Check if the team has at least one driver
-            race_result = simulate_race(team.drivers[0], team, starting_position, weather_condition, discipline, circuit_type, qualifying_results, sorted_qualifying_results, track_characteristics, iteration)
+            race_result = simulate_race(team.drivers[0], team, starting_position, weather_condition, discipline, circuit_type, qualifying_results, sorted_qualifying_results, track_characteristics)
             race_results.append((team_name, driver_name, race_result))
         else:
             pass  # Do nothing if no drivers available for the team
 
     # Sort race results by performance score after the race
     sorted_race_results = sorted(race_results, key=lambda x: (x[2] != 0, x[2]), reverse=True)
-
-    # Simulate the race over multiple iterations
-    iterations = int((total_laps * base_time) / 1000)
-    for iteration in range(iterations):
-        new_race_results = []
-        for i, (team_name, driver_name, _) in enumerate(sorted_race_results):
-            team = teams[team_name]
-            starting_position = i + 1
-            if team.drivers:  # Check if the team has at least one driver
-                race_result = simulate_race(team.drivers[0], team, starting_position, weather_condition, discipline, circuit_type, qualifying_results, sorted_race_results, track_characteristics, iteration)
-                new_race_results.append((team_name, driver_name, race_result))
-            else:
-                pass  # Do nothing if no drivers available for the team
-
-        # Sort race results by performance score after each iteration
-        sorted_race_results = sorted(new_race_results, key=lambda x: (x[2] != 0, x[2]), reverse=True)
-
-        # Print the winner of each iteration except the last one
-        if iteration < iterations - 1:
-            winner_team_name, winner_driver_name, winner_race_result = sorted_race_results[0]
-            print(f"Iteration {iteration + 1}: Winner - {winner_driver_name} ({winner_team_name}) with score {winner_race_result}")
 
     # Calculate position changes by comparing original qualifying position with final race position
     for race_position, (team_name_race, driver_name_race, race_result) in enumerate(sorted_race_results):

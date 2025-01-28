@@ -179,7 +179,7 @@ series_playoff_config = {
 # Initialize standings
 standings = {}
 
-def apply_points(series_name, race_results, qualifying_results, dnf_drivers, fastest_lap_data, most_laps_led_data):
+def apply_points(series_name, race_results, qualifying_results, dnf_drivers, dnq_drivers, fastest_lap_data, most_laps_led_data, discipline):
     points_system = points_systems.get(series_name, points_systems["Other Series"])
     points = points_system.get("points", [])
     pole_position_points = points_system.get("pole_position", 0)
@@ -197,13 +197,28 @@ def apply_points(series_name, race_results, qualifying_results, dnf_drivers, fas
     if dnf_drivers:
         for driver_info in dnf_drivers:
             all_drivers.add(driver_info["Driver"])
+    
+    all_drivers_dnq = set()
+    if dnq_drivers:
+        for driver_info in dnq_drivers:
+            all_drivers_dnq.add(driver_info["Driver"])
 
     for driver in all_drivers:
         if driver not in standings:
-            standings[driver] = {"Points": 0, "Wins": 0, "Podiums": 0, "Poles": 0, "DNFs": 0, "Races": 0}
+            if discipline == "StockCar":
+                standings[driver] = {"Points": 0, "Wins": 0, "Top 5s": 0, "Top 10s": 0, "Poles": 0, "DNFs": 0, "Races": 0}
+            else:
+                standings[driver] = {"Points": 0, "Wins": 0, "Podiums": 0, "Poles": 0, "DNFs": 0, "Races": 0}
             standings[driver]["Races"] += 1
         else:
             standings[driver]["Races"] += 1
+
+    for driver in all_drivers_dnq:
+        if driver not in standings:
+            if discipline == "StockCar":
+                standings[driver] = {"Points": 0, "Wins": 0, "Top 5s": 0, "Top 10s": 0, "Poles": 0, "DNFs": 0, "Races": 0}
+            else:
+                standings[driver] = {"Points": 0, "Wins": 0, "Podiums": 0, "Poles": 0, "DNFs": 0, "Races": 0}
 
     # Process qualifying results for pole position
     if qualifying_results:
@@ -229,8 +244,14 @@ def apply_points(series_name, race_results, qualifying_results, dnf_drivers, fas
         standings[driver]["Points"] += result_points
         if position == 1:
             standings[driver]["Wins"] += 1
-        if position <= 3:
-            standings[driver]["Podiums"] += 1
+        if discipline == "StockCar":
+            if position <= 5:
+                standings[driver]["Top 5s"] += 1
+            if position <= 10:
+                standings[driver]["Top 10s"] += 1
+        if discipline != "StockCar":
+            if position <= 3:
+                standings[driver]["Podiums"] += 1
 
     if dnf_drivers:
         for driver_info in dnf_drivers:
@@ -321,16 +342,18 @@ def get_series_attributes_from_csv(series_name, script_directory):
             if row['Series'] == series_name:
                 discipline = row['Discipline']
                 region = row['Region']
-                tier = row['Tier']
+                tier = row['Tier']          # Primary / Secondary / Tertiary    |   Premier / Developmental / Invitational
                 team_rules = row['Teams']
                 chassis_rules = row['Chassis']
                 engine_rules = row['Engine']
-                return discipline, region, tier, team_rules, chassis_rules, engine_rules
+                charter_system = row['Charter']  # Static / Dynamic / None
+                charter_slots = row['Slots']  # Number of charter slots available
+                return discipline, region, tier, team_rules, chassis_rules, engine_rules, charter_system, charter_slots
 
     # If no match is found, raise an error
     raise ValueError(f"No match found for series_name: {series_name}")
 
-def plot_driver_performance_heatmap(sorted_standings, race_results_list, dnf_drivers_list, discipline):
+def plot_driver_performance_heatmap(sorted_standings, race_results_list, dnf_drivers_list, discipline, dnq_drivers_list):
     drivers = [driver for driver, _ in sorted_standings]
     races = len(race_results_list)
 
@@ -356,8 +379,8 @@ def plot_driver_performance_heatmap(sorted_standings, race_results_list, dnf_dri
     colors = ["#FFFFFF", "#FFECA1", "#E8E8E8", "#DBA851", "#A1EFA9", "#9ABDE9", "#5D87BD"]
     cmap = mcolors.ListedColormap(colors)
 
-    #  L. Purple  D. Purple
-    # "#A77694", "#3B2834"
+    #  L. Purple  Faded Pink
+    # "#A77694", #D89C97"
 
     # Dynamically adjust bounds based on the number of drivers
     if discipline == 'StockCar':
@@ -368,7 +391,21 @@ def plot_driver_performance_heatmap(sorted_standings, race_results_list, dnf_dri
     norm = mcolors.BoundaryNorm(bounds, cmap.N)
 
     plt.figure(figsize=(12, 8))
-    sns.heatmap(data, annot=True, fmt=".0f", cmap=cmap, norm=norm, linewidths=.5, linecolor='gray', xticklabels=range(1, races + 1), yticklabels=drivers)
+    ax = sns.heatmap(data, annot=True, fmt=".0f", cmap=cmap, norm=norm, linewidths=.5, linecolor='gray', xticklabels=range(1, races + 1), yticklabels=drivers, annot_kws={"fontsize": 9})
+
+    # Apply pink color for DNQ results and display "DNQ" in the box
+    for i, driver in enumerate(drivers):
+        for j in range(races):
+            if np.isnan(data[i, j]):
+                if driver in [dnq_driver["Driver"] for dnq_driver in dnq_drivers_list[j]]:
+                    ax.add_patch(plt.Rectangle((j, i), 1, 1, fill=True, facecolor='#D89C97', edgecolor='gray', lw=0.5))
+                    ax.text(j + 0.5, i + 0.5, 'DNQ', ha='center', va='center', color='black', fontsize=8)
+
+    # Apply a pink tint for DNF results over the existing color
+    for i, driver in enumerate(drivers):
+        for j in range(races):
+            if driver in [dnf_driver["Driver"] for dnf_driver in dnf_drivers_list[j]]:
+                ax.add_patch(plt.Rectangle((j, i), 1, 1, fill=True, facecolor='#A77694', edgecolor='gray', lw=0.5))
 
     plt.xlabel('Race')
     plt.ylabel('Driver')
@@ -488,7 +525,7 @@ def plot_average_positions(sorted_standings, race_results_list, qualifying_resul
     # Save or show the plot
     plt.show()  # Display the plot
 
-def plot_driver_qualifying_heatmap(sorted_standings, qualifying_results_list):
+def plot_driver_qualifying_heatmap(sorted_standings, qualifying_results_list, dnq_drivers_list):
     drivers = [driver for driver, _ in sorted_standings]
     races = len(qualifying_results_list)
 
@@ -498,8 +535,13 @@ def plot_driver_qualifying_heatmap(sorted_standings, qualifying_results_list):
         for result in qualifying_results:
             driver = result["Driver"]
             position = result["Position"]
-            if position > len(qualifying_results):  # Check if position indicates a DNF
-                position = np.nan  # Replace with NaN or another placeholder
+            if driver in driver_positions:
+                driver_positions[driver][i] = position
+
+    for i, dnq_results in enumerate(dnq_drivers_list):
+        for result in dnq_results:
+            driver = result["Driver"]
+            position = result["Position"]
             if driver in driver_positions:
                 driver_positions[driver][i] = position
 
@@ -513,7 +555,7 @@ def plot_driver_qualifying_heatmap(sorted_standings, qualifying_results_list):
 
     # Create the heatmap with logarithmic color scaling
     sns.heatmap(data, annot=True, fmt=".0f", cmap="viridis_r", norm=norm, linewidths=.5, linecolor='gray',
-                xticklabels=range(1, races + 1), yticklabels=drivers)
+                xticklabels=range(1, races + 1), yticklabels=drivers, annot_kws={"fontsize": 9})
 
     plt.xlabel('Race')
     plt.ylabel('Driver')
@@ -644,7 +686,7 @@ def main():
     order, race_results_list, qualifying_results_list, dnf_drivers_list, dnq_drivers_list, fastest_lap_data_list, most_laps_led_data_list = load_results(results_dir, series_name)
 
     # Extract parts from the CSV file
-    discipline, tier, region, team_rules, chassis_rules, engine_rules = get_series_attributes_from_csv(series_name, script_directory)
+    discipline, region, tier, team_rules, chassis_rules, engine_rules, charter_system, charter_slots = get_series_attributes_from_csv(series_name, script_directory)
 
     if len(race_results_list) == 0:
         print(f"No race results loaded from directory: '{results_dir}'")
@@ -654,10 +696,10 @@ def main():
     json_output_data = []
 
     # Process each race separately
-    for i, (race_results, qualifying_results, dnf_drivers, fastest_lap_data, most_laps_led_data) in enumerate(zip(race_results_list, qualifying_results_list, dnf_drivers_list, fastest_lap_data_list, most_laps_led_data_list)):
+    for i, (race_results, qualifying_results, dnf_drivers, dnq_drivers, fastest_lap_data, most_laps_led_data) in enumerate(zip(race_results_list, qualifying_results_list, dnf_drivers_list, dnq_drivers_list, fastest_lap_data_list, most_laps_led_data_list)):
         if race_results:
             print(f"\nProcessing Race {i + 1}")
-            apply_points(series_name, race_results, qualifying_results, dnf_drivers, fastest_lap_data, most_laps_led_data)
+            apply_points(series_name, race_results, qualifying_results, dnf_drivers, dnq_drivers, fastest_lap_data, most_laps_led_data, discipline)
             reset_for_playoffs(standings, i, series_name)
         else:
             print(f"No race results found for Race {i + 1}")
@@ -679,21 +721,41 @@ def main():
                 supplier = result["Supplier"]
                 supplier_names[driver] = supplier  # Store the supplier name for each driver
 
+    for dnq_drivers in dnq_drivers_list:
+        if dnq_drivers:
+            for dnq_driver in dnq_drivers:
+                driver = dnq_driver["Driver"]
+                team_name = dnq_driver["Team"]
+                team_names[driver] = team_name  # Store the team name for each driver
+
+                supplier = dnq_driver["Supplier"]
+                supplier_names[driver] = supplier  # Store the supplier name for each driver
+
     # Calculate max lengths for formatting
     max_order_length = len(str(len(sorted_standings)))
     max_name_length = max(len(driver) for driver, _ in sorted_standings)
     max_team_length = max(len(team_names.get(driver, "")) for driver, _ in sorted_standings)
 
-    # Print headers with fixed-width formatting
-    print(f"    {'Driver':<{max_name_length}} | {'Team':<{max_team_length}} | "
-        f"{'Points':>6} | {'Wins':>4} | {'Podiums':>7} | {'Poles':>5} | {'DNFs':>4} | {'Races':>5}\n")
+    if discipline == "StockCar":
+        # Print headers with fixed-width formatting for StockCar
+        print(f"    {'Driver':<{max_name_length}} | {'Team':<{max_team_length}} | "
+              f"{'Points':>6} | {'Wins':>4} | {'Top 5s':>7} | {'Top 10s':>8} | {'Poles':>5} | {'DNFs':>4} | {'Races':>5}\n")
+    else:
+        # Print headers with fixed-width formatting for other disciplines
+        print(f"    {'Driver':<{max_name_length}} | {'Team':<{max_team_length}} | "
+              f"{'Points':>6} | {'Wins':>4} | {'Podiums':>7} | {'Poles':>5} | {'DNFs':>4} | {'Races':>5}\n")
 
     # Print standings with team names
     for i, (driver, stats) in enumerate(sorted_standings):
         team_name = team_names.get(driver, "")
-        print(f"{i+1:>{max_order_length}}. {driver:<{max_name_length}} | {team_name:<{max_team_length}} | "
-            f"{stats['Points']:>6} | {stats['Wins']:>4} | {stats['Podiums']:>7} | {stats['Poles']:>5} | "
-            f"{stats['DNFs']:>4} | {stats['Races']:>5}")
+        if discipline == "StockCar":
+            print(f"{i+1:>{max_order_length}}. {driver:<{max_name_length}} | {team_name:<{max_team_length}} | "
+                  f"{stats['Points']:>6} | {stats['Wins']:>4} | {stats['Top 5s']:>7} | {stats['Top 10s']:>8} | "
+                  f"{stats['Poles']:>5} | {stats['DNFs']:>4} | {stats['Races']:>5}")
+        else:
+            print(f"{i+1:>{max_order_length}}. {driver:<{max_name_length}} | {team_name:<{max_team_length}} | "
+                  f"{stats['Points']:>6} | {stats['Wins']:>4} | {stats['Podiums']:>7} | {stats['Poles']:>5} | "
+                  f"{stats['DNFs']:>4} | {stats['Races']:>5}")
 
     if team_rules == 'Teams':
         print("\n\n\n - - - Team Standings - - - \n")
@@ -709,13 +771,21 @@ def main():
             team = team_name_full.strip()
 
         if team not in team_stats:
-            team_stats[team] = {"Points": 0, "Wins": 0, "Podiums": 0, "Poles": 0, "DNFs": 0}
+            if discipline == "StockCar":
+                team_stats[team] = {"Points": 0, "Wins": 0, "Top 5s": 0, "Top 10s": 0, "Poles": 0, "DNFs": 0}
+            else:
+                team_stats[team] = {"Points": 0, "Wins": 0, "Podiums": 0, "Poles": 0, "DNFs": 0}
 
         team_stats[team]["Points"] += stats["Points"]
         team_stats[team]["Wins"] += stats["Wins"]
-        team_stats[team]["Podiums"] += stats["Podiums"]
         team_stats[team]["Poles"] += stats["Poles"]
         team_stats[team]["DNFs"] += stats["DNFs"]
+
+        if discipline == "StockCar":
+            team_stats[team]["Top 5s"] += stats["Top 5s"]
+            team_stats[team]["Top 10s"] += stats["Top 10s"]
+        else:
+            team_stats[team]["Podiums"] += stats["Podiums"]
 
     # Sort teams based on points (descending)
     sorted_teams = sorted(team_stats.items(), key=lambda x: x[1]["Points"], reverse=True)
@@ -725,13 +795,21 @@ def main():
     max_team_length = max(len(team) for team, _ in sorted_teams)
 
     if team_rules == 'Teams':
-        # Print headers with fixed-width formatting
-        print(f"    {'Team':<{max_team_length}} | {'Points':>6} | {'Wins':>4} | {'Podiums':>7} | {'Poles':>5} | {'DNFs':>4}\n")
+        if discipline == "StockCar":
+            # Print headers with fixed-width formatting for StockCar
+            print(f"    {'Team':<{max_team_length}} | {'Points':>6} | {'Wins':>4} | {'Top 5s':>7} | {'Top 10s':>8} | {'Poles':>5} | {'DNFs':>4}\n")
+        else:
+            # Print headers with fixed-width formatting for other disciplines
+            print(f"    {'Team':<{max_team_length}} | {'Points':>6} | {'Wins':>4} | {'Podiums':>7} | {'Poles':>5} | {'DNFs':>4}\n")
 
         # Print team standings with stats
         for i, (team, stats) in enumerate(sorted_teams):
-            print(f"{i + 1:>{max_order_length}}. {team:<{max_team_length}} | {stats['Points']:>6} | {stats['Wins']:>4} | "
-                f"{stats['Podiums']:>7} | {stats['Poles']:>5} | {stats['DNFs']:>4}")
+            if discipline == "StockCar":
+                print(f"{i + 1:>{max_order_length}}. {team:<{max_team_length}} | {stats['Points']:>6} | {stats['Wins']:>4} | "
+                      f"{stats['Top 5s']:>7} | {stats['Top 10s']:>8} | {stats['Poles']:>5} | {stats['DNFs']:>4}")
+            else:
+                print(f"{i + 1:>{max_order_length}}. {team:<{max_team_length}} | {stats['Points']:>6} | {stats['Wins']:>4} | "
+                      f"{stats['Podiums']:>7} | {stats['Poles']:>5} | {stats['DNFs']:>4}")
 
     if team_rules == 'Entrants':
         print("\n\n\n - - - Entrant Standings - - - \n")
@@ -742,14 +820,22 @@ def main():
         entrant = team_names.get(driver, "No Team").strip()
 
         if entrant not in entrant_stats:
-            entrant_stats[entrant] = {"Points": 0, "Wins": 0, "Podiums": 0, "Poles": 0, "DNFs": 0, "Races": 0}
+            if discipline == "StockCar":
+                entrant_stats[entrant] = {"Points": 0, "Wins": 0, "Top 5s": 0, "Top 10s": 0, "Poles": 0, "DNFs": 0, "Races": 0}
+            else:
+                entrant_stats[entrant] = {"Points": 0, "Wins": 0, "Podiums": 0, "Poles": 0, "DNFs": 0, "Races": 0}
 
         entrant_stats[entrant]["Points"] += stats["Points"]
         entrant_stats[entrant]["Wins"] += stats["Wins"]
-        entrant_stats[entrant]["Podiums"] += stats["Podiums"]
         entrant_stats[entrant]["Poles"] += stats["Poles"]
         entrant_stats[entrant]["DNFs"] += stats["DNFs"]
         entrant_stats[entrant]["Races"] += stats["Races"]
+
+        if discipline == "StockCar":
+            entrant_stats[entrant]["Top 5s"] += stats["Top 5s"]
+            entrant_stats[entrant]["Top 10s"] += stats["Top 10s"]
+        else:
+            entrant_stats[entrant]["Podiums"] += stats["Podiums"]
 
     # Sort entrants based on points (descending)
     sorted_entrants = sorted(entrant_stats.items(), key=lambda x: x[1]["Points"], reverse=True)
@@ -759,53 +845,100 @@ def main():
     max_entrant_length = max(len(entrant) for entrant, _ in sorted_entrants)
 
     if team_rules == 'Entrants':
-        # Print headers with fixed-width formatting
-        print(f"    {'Entrant':<{max_entrant_length}} | {'Points':>6} | {'Wins':>4} | {'Podiums':>7} | {'Poles':>5} | {'DNFs':>4} | {'Races':>5}\n")
+        if discipline == "StockCar":
+            # Print headers with fixed-width formatting for StockCar
+            print(f"    {'Entrant':<{max_entrant_length}} | {'Points':>6} | {'Wins':>4} | {'Top 5s':>7} | {'Top 10s':>8} | {'Poles':>5} | {'DNFs':>4} | {'Races':>5}\n")
+        else:
+            # Print headers with fixed-width formatting for other disciplines
+            print(f"    {'Entrant':<{max_entrant_length}} | {'Points':>6} | {'Wins':>4} | {'Podiums':>7} | {'Poles':>5} | {'DNFs':>4} | {'Races':>5}\n")
 
         # Print entrant standings with stats
         for i, (entrant, stats) in enumerate(sorted_entrants):
-            print(f"{i + 1:>{max_order_length}}. {entrant:<{max_entrant_length}} | {stats['Points']:>6} | {stats['Wins']:>4} | "
-                f"{stats['Podiums']:>7} | {stats['Poles']:>5} | {stats['DNFs']:>4} | {stats['Races']:>5}")
+            if discipline == "StockCar":
+                print(f"{i + 1:>{max_order_length}}. {entrant:<{max_entrant_length}} | {stats['Points']:>6} | {stats['Wins']:>4} | "
+                      f"{stats['Top 5s']:>7} | {stats['Top 10s']:>8} | {stats['Poles']:>5} | {stats['DNFs']:>4} | {stats['Races']:>5}")
+            else:
+                print(f"{i + 1:>{max_order_length}}. {entrant:<{max_entrant_length}} | {stats['Points']:>6} | {stats['Wins']:>4} | "
+                      f"{stats['Podiums']:>7} | {stats['Poles']:>5} | {stats['DNFs']:>4} | {stats['Races']:>5}")
 
     # Prepare standings data for JSON export
     for i, (driver, stats) in enumerate(sorted_standings):
         team_name = team_names.get(driver, "No Team")
-        json_output_data.append({
-            "Rank": i + 1,
-            "Driver": driver,
-            "Team": team_name,
-            "Points": stats['Points'],
-            "Wins": stats['Wins'],
-            "Podiums": stats['Podiums'],
-            "Poles": stats['Poles'],
-            "DNFs": stats['DNFs'],
-            "Races": stats['Races']
-        })
+        if discipline == "StockCar":
+            json_output_data.append({
+                "Rank": i + 1,
+                "Driver": driver,
+                "Team": team_name,
+                "Points": stats['Points'],
+                "Wins": stats['Wins'],
+                "Top 5s": stats['Top 5s'],
+                "Top 10s": stats['Top 10s'],
+                "Poles": stats['Poles'],
+                "DNFs": stats['DNFs'],
+                "Races": stats['Races']
+            })
+        else:
+            json_output_data.append({
+                "Rank": i + 1,
+                "Driver": driver,
+                "Team": team_name,
+                "Points": stats['Points'],
+                "Wins": stats['Wins'],
+                "Podiums": stats['Podiums'],
+                "Poles": stats['Poles'],
+                "DNFs": stats['DNFs'],
+                "Races": stats['Races']
+            })
 
     # Prepare team standings data for JSON export
     for i, (team, stats) in enumerate(sorted_teams):
-        json_output_data.append({
-            "t_Rank": i + 1,
-            "t_Team": team,
-            "t_Points": stats["Points"],
-            "t_Wins": stats["Wins"],
-            "t_Podiums": stats["Podiums"],
-            "t_Poles": stats["Poles"],
-            "t_DNFs": stats["DNFs"]
-        })
+        if discipline == "StockCar":
+            json_output_data.append({
+                "t_Rank": i + 1,
+                "t_Team": team,
+                "t_Points": stats["Points"],
+                "t_Wins": stats["Wins"],
+                "t_Top 5s": stats["Top 5s"],
+                "t_Top 10s": stats["Top 10s"],
+                "t_Poles": stats["Poles"],
+                "t_DNFs": stats["DNFs"]
+            })
+        else:
+            json_output_data.append({
+                "t_Rank": i + 1,
+                "t_Team": team,
+                "t_Points": stats["Points"],
+                "t_Wins": stats["Wins"],
+                "t_Podiums": stats["Podiums"],
+                "t_Poles": stats["Poles"],
+                "t_DNFs": stats["DNFs"]
+            })
 
     # Prepare entrant standings data for JSON export
     for i, (entrant, stats) in enumerate(sorted_entrants):
-        json_output_data.append({
-            "e_Rank": i + 1,
-            "e_Entrant": entrant,
-            "e_Points": stats["Points"],
-            "e_Wins": stats["Wins"],
-            "e_Podiums": stats["Podiums"],
-            "e_Poles": stats["Poles"],
-            "e_DNFs": stats["DNFs"],
-            "e_Races": stats["Races"]
-        })
+        if discipline == "StockCar":
+            json_output_data.append({
+                "e_Rank": i + 1,
+                "e_Entrant": entrant,
+                "e_Points": stats["Points"],
+                "e_Wins": stats["Wins"],
+                "e_Top 5s": stats["Top 5s"],
+                "e_Top 10s": stats["Top 10s"],
+                "e_Poles": stats["Poles"],
+                "e_DNFs": stats["DNFs"],
+                "e_Races": stats["Races"]
+            })
+        else:
+            json_output_data.append({
+                "e_Rank": i + 1,
+                "e_Entrant": entrant,
+                "e_Points": stats["Points"],
+                "e_Wins": stats["Wins"],
+                "e_Podiums": stats["Podiums"],
+                "e_Poles": stats["Poles"],
+                "e_DNFs": stats["DNFs"],
+                "e_Races": stats["Races"]
+            })
 
     # Define the JSON file name based on series name and the last round processed
     most_recent_round = order
@@ -911,9 +1044,9 @@ def main():
     # Show the plot
     plt.show()
 
-    plot_driver_performance_heatmap(sorted_standings, race_results_list, dnf_drivers_list, discipline)
+    plot_driver_performance_heatmap(sorted_standings, race_results_list, dnf_drivers_list, discipline, dnq_drivers_list)
 
-    plot_driver_qualifying_heatmap(sorted_standings, qualifying_results_list)
+    plot_driver_qualifying_heatmap(sorted_standings, qualifying_results_list, dnq_drivers_list)
 
     plot_race_by_race_performance(drivers, race_results_list)
 
