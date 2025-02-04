@@ -1,0 +1,20 @@
+Order,Circuit,Event,Type,Clear,Rainy,Overcast,Hot,Stormy,Laps,Base Time,Lap Record,Grid Size
+01,Bahrain International Circuit - Bahrain,Feature,Grand Prix,0.75,0.005,0.05,0.195,0,49,110,1:00.00 - 2010 - Driver (Team),26
+02,Albert Park Circuit - Australia,Feature,Street Track,0.7,0.1,0.05,0.1,0.05,58,80,1:00.00 - 2010 - Driver (Team),26
+03,Sepang International Circuit - Malaysia,Feature,Grand Prix,0.5,0.25,0.05,0.1,0.1,56,110,1:00.00 - 2010 - Driver (Team),26
+04,Shanghai International Circuit - China,Feature,Grand Prix,0.65,0.145,0.1,0.1,0.005,56,90,1:00.00 - 2010 - Driver (Team),26
+05,Circuit de Barcelona-Catalunya - Spain,Feature,Grand Prix,0.695,0.1,0.1,0.1,0.005,66,80,1:00.00 - 2010 - Driver (Team),26
+06,Circuit de Monaco - Monaco,Feature,Street Track,0.695,0.1,0.1,0.005,0.1,78,70,1:00.00 - 2010 - Driver (Team),26
+07,Istanbul Park - Turkey,Feature,Grand Prix,0.6,0.1,0.15,0.15,0,58,90,1:00.00 - 2010 - Driver (Team),26
+08,Circuit Gilles Villenueve - Canada,Feature,Road Course,0.55,0.2,0.2,0.025,0.025,70,80,1:00.00 - 2010 - Driver (Team),26
+09,Valencia Street Circuit - Spain,Feature,Street Track,0.65,0.145,0.1,0.1,0.005,57,100,1:00.00 - 2010 - Driver (Team),26
+10,Silverstone Circuit - UK,Feature,Grand Prix,0.45,0.2,0.25,0.05,0.05,52,90,1:00.00 - 2010 - Driver (Team),26
+11,Hockenheimring - Germany,Feature,Grand Prix,0.5,0.2,0.2,0,0.1,67,70,1:00.00 - 2010 - Driver (Team),26
+12,Hungaroring - Hungary,Feature,Grand Prix,0.5,0.25,0.15,0.05,0.05,70,80,1:00.00 - 2010 - Driver (Team),26
+13,Circuit de Spa-Francorchamps - Belgium,Feature,Grand Prix,0.6,0.2,0.1,0,0.1,44,110,1:00.00 - 2010 - Driver (Team),26
+14,Autodromo Nazionale di Monza - Italy,Feature,Grand Prix,0.7,0.1,0.1,0.05,0.05,53,80,1:00.00 - 2010 - Driver (Team),26
+15,Marina Bay Street Circuit - Singapore,Feature,Street Track,0.6,0.15,0.05,0.1,0.1,61,100,1:00.00 - 2010 - Driver (Team),26
+16,Suzuka Circuit - Japan,Feature,Grand Prix,0.7,0.15,0.05,0.05,0.05,53,90,1:00.00 - 2010 - Driver (Team),26
+17,Korea International Circuit - Korea,Feature,Grand Prix,0.75,0.15,0.05,0.025,0.025,55,100,1:00.00 - 2010 - Driver (Team),26
+18,Autodromo Jose Carlos Pace - Brazil,Feature,Grand Prix,0.3,0.2,0.1,0.2,0.2,71,70,1:00.00 - 2010 - Driver (Team),26
+19,Yas Marina Circuit - UAE,Feature,Grand Prix,0.7,0.005,0.095,0.2,0,55,100,1:00.00 - 2010 - Driver (Team),26

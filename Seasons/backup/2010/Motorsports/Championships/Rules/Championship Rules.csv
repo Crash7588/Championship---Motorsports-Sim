@@ -1,0 +1,6 @@
+Series,Discipline,Region,Tier,Teams,Chassis,Engine,Charter,Slots
+Formula One World Championship,OpenWheel,International,Primary|Premier,Teams,Full,Partial,Static,26
+NASCAR Sprint Cup Series,StockCar,USA,Primary|Premier,Entrants,Partial,Partial,Dynamic,35
+IndyCar Series,OpenWheel,NorthAmerica,Primary|Premier,Entrants,Partial,Spec,None,
+GP2 Series,OpenWheel,International,Secondary|Developmental,Teams,Spec,Spec,Static,26
+Indy Lights,OpenWheel,NorthAmerica,Secondary|Developmental,Entrants,Spec,Spec,None,

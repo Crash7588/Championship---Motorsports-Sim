@@ -1,0 +1,13 @@
+Prestigous - small chance for driver to lose skill in race
+
+Chaotic - higher randomness, higher chance for collisions
+Tame - lower randomness
+
+HeavyAttrition - higher chance of retirements/crashes/collisions
+
+Windy - hurts aero, higher chance for crashes
+
+HotClimate - slightly worse skill/slightly worse reliability
+ColdClimate - slightly worse skill/slightly better reliability
+
+PoorTrackSurface - hurts suspension

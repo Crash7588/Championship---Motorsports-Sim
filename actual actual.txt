@@ -1,0 +1,43 @@
+add
+
+driver
+	personal sponsor
+	connections?
+	
+entry
+	engineer
+	approach? (conservative/balanced/aggressive)
+
+
+wind is more of a factor on highspeed tracks				IMPORTANT BELOW 
+
+flesh out DIFFICULTY/WINDY and PRESTIGE
+
+add R/D cars that can be part time (Hendrick #25?) full time (Penske #77) or because of outside factors (Hamilton 2024)
+
+add third level of setup success/failure, where if all 4 fail then theres another modifier, but if all 4 succeed then theres a bonus modifier
+
+add short and tall (and small cockpit/large)
+
+add sponsor objectives
+
+redo grip/tire suppliers
+
+OVERHAUL engines
+
+ADD MULTIPLE RACE ITERATIONS
+	overtaking stats?
+	spins, runs wide, etc
+	pitstops (and tire wear/fuel consumption) / strategies/pitcrews
+	live leaderboard???
+	goodfirstlap/badfirstlap trait
+	safety cars/restarts
+	
+driver relations?
+	ally
+	enemy
+	neutral
+
+EXHIBITION races
+
+add track safety in schedule and car safety in championship

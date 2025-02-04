@@ -1,0 +1,57 @@
+Name,Nationality,Age,Speed,Skill,Experience,Morale,Discipline,Preference,Traits,Fame,Reputation,Partner,Relations,Team,Activity,Interest
+D. Stremme,USA,32,47.5,52.5,1,0.5,StockCar,Oval,,0.4,0.45,,Poor,#09 - Phoenix Racing,2009,1
+E. Darnell,USA,27,47.5,47.5,0.95,0.5,StockCar,Oval,,0.3,0.3,,Fair,#96 - Hall of Fame Racing,2009,1
+S. Riggs,USA,39,52.5,50,1,0.5,StockCar,Oval,Inconsistent,0.45,0.45,,Fair,#36 - Tommy Baldwin Racing,2009,1
+P. Carpentier,Canada,38,52.5,50,0.8,0.5,OpenWheel,Oval,,0.4,0.3,,Fair,#55 - Michael Waltrip Racing,2009,1
+S. Marlin,USA,52,40,46,1,0.5,StockCar,Oval,SemiRetired,0.6,0.45,,Fair,#09 - Phoenix Racing,2009,1
+J. Mayfield,USA,41,50,54,1,0.5,StockCar,Oval,,0.55,0.3,,Poor,#41 - Mayfield Motorsports,2009,1
+R. Fellows,Canada,50,47.5,49,0.9,0.5,Any,Road,SemiRetired,0.2,0.35,,Fair,#09 - Phoenix Racing,2009,1
+A. Lally,USA,35,56,59,0.5,0.5,Endurance,Road,Adaptive,0.25,0.4,,Fair,#71 - The Racer's Group Motorsports,2009,1
+S. Wimmer,USA,34,49,52.5,1,0.5,StockCar,Oval,,0.3,0.45,,Fair,#4  - Morgan-McClure Motorsports,2009,1
+D. Bean,USA,23,45,40,0.88,0.5,StockCar,Oval,Inconsistent,0.05,0.05,,Fair,#51 - BlackJack Racing,2009,1
+T. Ave,USA,41,50,47.5,0.5,0.5,Touring,Road,Adaptive,0.1,0.15,,Fair,#37 - Front Row Motorsports,2009,1
+M. Garvey,USA,47,40,42.5,0.68,0.5,StockCar,Oval,,0.05,0.1,,Fair,#73 - H&S Motorsports,2009,1
+G. Bodine,USA,61,35,42.5,1,0.5,StockCar,Oval,SuperspeedwaySpecialist|SemiRetired,0.45,0.5,,Fair,#64 - Gunselman Motorsports,2009,1
+C. Long,USA,42,46,47.5,1,0.5,StockCar,Oval,,0.2,0.25,,Fair,#46 - Carl Long Racing,2009,1
+K. Shelmerdine V.,USA,52,40,44,0.9,0.5,StockCar,Oval,,0.15,0.25,,Great,#27 - Kirk Shelmerdine Racing,2009,1
+K. Bires,USA,25,52.5,51,0.85,0.5,StockCar,Oval,,0.15,0.2,,Fair,#51 - BlackJack Racing,2009,1
+D. Starr,USA,42,47.5,51,1,0.5,StockCar,Oval,,0.2,0.25,,Fair,#06 - Boys Will Be Boys Racing,2009,1
+D. Setzer,USA,50,40,45,1,0.5,StockCar,Oval,,0.1,0.15,,Fair,#46 - Carl Long Racing,2009,1
+T. Boys,Canada,52,35,36,0.58,0.5,StockCar,Oval,GentlemanDriver|SemiRetired,0.05,0.1,,Great,#06 - Boys Will Be Boys Racing,2009,1
+E. McClure,USA,31,42.5,47.5,0.85,0.5,StockCar,Oval,RacingFamily,0.15,0.1,,Great,#4  - Morgan-McClure Motorsports,2009,1
+B. Simo,USA,50,40,42.5,0.68,0.5,Touring,Road,Adaptive,0.05,0.1,,Fair,#36 - Tommy Baldwin Racing,2009,1
+T. Hubert,USA,45,40,45,0.88,0.5,StockCar,Road,,0.1,0.1,,Fair,#27 - Kirk Shelmerdine Racing,2009,1
+C. Cook,USA,38,45,46,0.5,0.5,StockCar,Road,,0.05,0.2,,Fair,#37 - Front Row Motorsports,2009,1
+T. Christopher,USA,51,41,40,0.88,0.5,StockCar,Oval,,0.05,0.1,,Fair,#27 - Kirk Shelmerdine Racing,2009,1
+K. Hamlin,USA,30,42.5,47.5,0.85,0.5,StockCar,Oval,,0.1,0.1,,Fair,#37 - Front Row Motorsports,2009,1
+K. Conway,USA,31,44,47.5,0.8,0.5,StockCar,Oval,,0.15,0.15,,Great,#70 - The Racer's Group Motorsports,2009,1
+M. Crafton,USA,33,49,52.5,1,0.5,StockCar,Oval,,0.25,0.3,,Great,#7  - Robby Gordon Motorsports,2009,1
+J. Hylton,USA,75,31,31,0.78,0.5,StockCar,Oval,GentlemanDriver|SemiRetired,0.05,0.05,,Fair,#60 - E&M Motorsports,2009,1
+K. Schrader,USA,55,40,42.5,1,0.5,StockCar,Oval,SuperspeedwaySpecialist|SemiRetired,0.45,0.25,,Fair,#96 - Hall of Fame Racing,2008,1
+K. Petty,USA,49,46,46,0.9,0.5,StockCar,Oval,RacingFamily|SemiRetired,0.55,0.3,,Great,#45 - Petty Enterprises,2008,1
+M. Skinner,USA,52,45,47.5,0.82,0.5,StockCar,Oval,,0.3,0.4,,Fair,#70 - The Racer's Group Motorsports,2008,1
+C. McCumbee,USA,25,47.5,44,0.95,0.5,StockCar,Oval,NoFunding,0.15,0.2,,Fair,#45 - Petty Enterprises,2008,1
+D. Jarrett,USA,53,41,45,1,0.5,StockCar,Oval,SuperspeedwaySpecialist|SemiRetired,0.65,0.25,,Great,#44 - Michael Waltrip Racing,2008,1
+J. Leffler,USA,34,44,47.5,1,0.5,StockCar,Oval,,0.2,0.2,,Fair,#70 - Haas CNC Racing,2008,1
+J. Wood,USA,28,46,50,1,0.5,StockCar,Oval,RacingFamily,0.25,0.35,,Great,#21 - Wood Brothers Racing,2008,1
+S. Pruett,USA,50,51,55,0.6,0.5,Touring,Road,Adaptive,0.35,0.5,,Fair,#41 - Chip Ganassi Racing,2008,1
+B. Coleman,USA,22,50,45,0.78,0.5,StockCar,Oval,Inconsistent|NoFunding,0.1,0.1,,Fair,#96 - Hall of Fame Racing,2008,1
+J. Villeneuve,Canada,38,54,50,0.5,0.5,OpenWheel,Road,RacingFamily|Inconsistent,0.65,0.3,,Fair,#27 - Bill Davis Racing,2008,1
+K. Wallace,USA,46,49,52.5,1,0.5,StockCar,Oval,RacingFamily,0.4,0.35,,Fair,#00 - Michael Waltrip Racing,2008,1
+B. Lamar,USA,29,47.5,45,0.85,0.5,StockCar,Oval,,0.2,0.15,,Fair,#08 - E&M Racing,2008,1
+J. Benson Jr.,USA,46,47.5,47.5,1,0.5,StockCar,Oval,Inconsistent,0.4,0.3,,Poor,#27 - Bill Davis Racing,2008,1
+J. Green,USA,47,49.5,48.5,1,0.5,StockCar,Oval,,0.3,0.25,,Fair,#34 - Front Row Motorsports,2008,1
+C. Chaffin,USA,41,42.5,44,0.9,0.5,StockCar,Oval,,0.15,0.15,,Fair,#34 - Front Row Motorsports,2008,1
+B. Clauson,USA,20,47.5,42.5,0.5,0.5,StockCar,Oval,Adaptive,0.15,0.2,,Fair,#40 - Chip Ganassi Racing,2008,1
+R. Rudd,USA,53,46,47.5,1,0.5,StockCar,Both,SemiRetired,0.7,0.35,,Fair,#88 - Yates Racing,2007,1
+W. Burton,USA,48,48,49,1,0.5,StockCar,Oval,RacingFamily,0.45,0.3,,Fair,#4  - Morgan-McClure Motorsports,2007,1
+B. Leitzinger,USA,41,47.5,52.5,0.5,0.5,Endurance,Road,,0.2,0.25,,Fair,#23 - Bill Davis Racing,2007,1
+M. Goossens,Belgium,40,52.5,51,0.5,0.5,OpenWheel,Road,Adaptive,0.1,0.3,,Fair,#91 - Riley-D'Hondt Motorsports,2007,1
+F. Kimmel,USA,48,54,56,1,0.5,StockCar,Oval,,0.3,0.1,,Poor,#71 - Fast Track Racing Enterprises,2007,1
+B. Whitt,USA,27,47.5,42.5,0.8,0.5,StockCar,Oval,,0.15,0.15,,Fair,#72 - CJM Racing,2007,1
+K. Graf,Germany,40,51,52.5,0.5,0.5,Endurance,Road,,0.1,0.2,,Fair,#49 - BAM Racing,2007,1
+L. Foyt,USA,33,45,47.5,0.6,0.5,StockCar,Oval,RacingFamily,0.35,0.25,,Fair,#49 - BAM Racing,2007,1
+H. Sadler III.,USA,41,50,47.5,1,0.5,StockCar,Oval,RacingFamily,0.25,0.25,,Fair,#00 - Michael Waltrip Racing,2006,1
+S. Park,USA,42,44,45,0.82,0.5,StockCar,Oval,,0.35,0.2,,Fair,#7  - Ultra Motorsports,2004,1
+B. Gaughan,USA,34,45,47.5,0.9,0.5,StockCar,Oval,SuperspeedwaySpecialist,0.35,0.25,,Fair,#77 - Penske-Jasper Racing,2004,1
+T. Musgrave,USA,54,42.5,46,1,0.5,StockCar,Oval,SemiRetired,0.35,0.2,,Fair,#7  - Ultra Motorsports,2003,1

@@ -1,0 +1,28 @@
+Name,Age,Speed,Skill,Funding,Team,Chassis,Reliability,Supplier,Power,Contract
+O. Panis,43,40,60,3,(LMP1) #4  - Team Oreca,800,0.8,Peugeot,350,
+N. Lapierre,26,55,60,,(LMP1) #4  - Team Oreca,800,0.8,Peugeot,350,
+S. Sarrazin,34,65,70,,(LMP1) #4  - Team Oreca,800,0.8,Peugeot,350,
+S. Ayari,,,,,(LMP1) #6 - AIM Team Oreca,800,0.75,Oreca - AIM,300,Part-Time
+L. Duval,,,,,(LMP1) #6 - AIM Team Oreca,800,0.75,Oreca - AIM,301,Part-Time
+D. Andre,,,,,(LMP1) #6 - AIM Team Oreca,800,0.75,Oreca - AIM,302,Part-Time
+P. Ragues,26,40,55,,(LMP1) #008- Signature-Plus,700,0.9,Lola-Aston Martin,300,
+F. Mailleux,25,45,55,,(LMP1) #008- Signature-Plus,700,0.9,Lola-Aston Martin,300,
+V. Ickx,35,25,30,2,(LMP1) #008- Signature-Plus,700,0.9,Lola-Aston Martin,300,
+N. Jani,26,60,70,,(LMP1) #12 - Rebellion Racing,750,0.75,Lola - Rebellion,350,
+N. Prost,28,50,60,8,(LMP1) #12 - Rebellion Racing,750,0.75,Lola - Rebellion,350,
+A. Belicchi,33,50,55,,(LMP1) #13 - Rebellion Racing,750,0.75,Lola - Rebellion,350,
+J. C. Boulion,40,45,60,2,(LMP1) #13 - Rebellion Racing,750,0.75,Lola - Rebellion,350,
+G. Smith,35,45,60,,(LMP1) #13 - Rebellion Racing,750,0.75,Lola - Rebellion,350,
+A. McNish,40,55,65,,(LMP1) #7  - Audi Sport Team Joest,800,0.75,,350,Part-Time
+R. Capello,46,55,70,,(LMP1) #7  - Audi Sport Team Joest,800,0.75,,350,Part-Time
+A. Fernandez,,,,,(LMP1) #009- Aston Martin Racing,700,0.9,Lola-Aston Martin,300,Part-Time
+H. Primat,,,,,(LMP1) #009- Aston Martin Racing,700,0.9,Lola-Aston Martin,300,Part-Time
+S. Mucke,,,,,(LMP1) #009- Aston Martin Racing,700,0.9,Lola-Aston Martin,300,Part-Time
+N. Mansell,,,,,(LMP1) #5  - Beachdean Mansell,800,0.85,Ginetta-Zytek,300,Part-Time
+G. Mansell,,,,,(LMP1) #5  - Beachdean Mansell,800,0.85,Ginetta-Zytek,300,Part-Time
+L. Mansell,,,,,(LMP1) #5  - Beachdean Mansell,800,0.85,Ginetta-Zytek,300,Part-Time
+F. Montagny,,,,,(LMP1) #2  - Team Peugeot,850,0.85,,350,Part-Time
+C. Klien,,,,,(LMP1) #2  - Team Peugeot,850,0.85,,350,Part-Time
+P. Lamy,,,,,(LMP1) #3  - Team Peugeot,850,0.85,,350,Part-Time
+S. Bourdais,,,,,(LMP1) #3  - Team Peugeot,850,0.85,,350,Part-Time
+S. Pagenaud,,,,,(LMP1) #3  - Team Peugeot,850,0.85,,350,Part-Time
