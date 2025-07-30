@@ -1,0 +1,65 @@
+Nationality
+		USA - United States of America
+		UK - United Kingdom
+		UAE - United Arab Emirates
+		DRC - Democratic Republic of the Congo
+
+Experience 		0-1
+Morale			0-1
+
+Discipline
+		Any
+		StockCar
+		OpenWheel
+		Touring
+		Endurance
+			Prototype
+			Sportscars
+		Karting
+
+Preference
+		Road
+		Oval
+		Both
+		None
+
+Style
+		Adaptive
+		Balanced
+		None
+		Oversteer
+		Understeer
+	
+Fame	 		0-1
+Reputation		0-1
+
+Contract
+		1-???
+		Race/Season
+
+Relations
+		Excellent
+		Great
+		Fair
+		Poor
+		Terrible
+
+Design
+		Balanced
+		None
+		Oversteer
+		Understeer
+
+Crew
+		Excellent
+		Great
+		Fair
+		Poor
+		Terrible
+		
+Ability
+		Excellent
+		Great
+		Fair
+		Poor
+		Terrible

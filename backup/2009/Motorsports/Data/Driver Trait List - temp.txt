@@ -1,0 +1,118 @@
+(Now, with overtakes/blocks)
+GreatBlocker
+PoorBlocker
+GreatOvertaker
+PoorOvertaker
+GreatInCleanAir
+PoorInCleanAir
+
+WetWeatherSpecialist - no decrease in skill / speed when in rainy / stormy weather
+	PoorInWetWeather
+
+ShortTrackSpecialist - performance boost on Short Tracks
+	PoorAtShortTracks
+StreetTrackSpecialist - performance boost on Street Tracks
+	PoorAtStreetTracks
+SuperspeedwaySpecialist - performance boost on Superspeedway
+	PoorAtSuperspeedways
+	
+PoorAtRoadCourses
+
+PushedByTeammate
+IntimidatedByTeammate
+
+GreatFeedback
+PoorFeedback
+
+HardOnTires
+EasyOnTires
+
+MileOvalSpecialist
+SpeedwaySpecialist
+	and opposites
+
+Aggressive - higher odds for overtakes
+Cautious - lower odds for overtakes
+
+FemaleDriver - slightly higher fame gain / slightly lower rep gain
+
+HardOnTheCar - slightly higher retirement chance / slightly higher wear rate
+EasyOnTheCar - slightly lower retirement chance / slightly lower wear rate
+
+EarlySeasonPeak - slightly higher speed / skill for first half of season, opposite for 2nd half
+LateSeasonPeak - slightly lower speed / skill for first half of season, opposite for 2nd half
+
+Inconsistent - skill / speed varies from race to race greatly
+Heroic - skill boost when in bottom x% of grid / higher fame gain
+Yielding - skill decrease when in bottom x% of grid
+PoorFromPole - decrease in skill when starting from pole
+GreatFromPole - increase in skill when starting on pole
+
+QualifyingSpecialist - speed / skill boost in qualifying
+
+### GoodInstincts - minor skill boost
+Strategist - minor strategy boost
+PoorCommunicator - minor strategy decrease / lower rep gain
+
+InjuryProne - more susceptible to injuries
+
+Adaptive - better than most at moving to a different discipline
+
+Funding
+	PersonalSponsors - medium amount of money / can't lose easily
+	WealthyFamily - medium amount of money / can lose easily
+	RacingFamily - low amount of money / can't lose / higher fame gain
+	PayDriver - high amount of money / can't lose easily
+	StateBacked - extreme amount of money / can lose easily
+	NoFunding - lower rep gain / less likely to be hired
+	ManufacturerBacked
+
+FastLearner - higher experience gain
+SlowLearner - lower experience gain
+
+TeamOwner - lower chance to be fired
+GentlemanDriver - cannot be hired by a team other than their own
+
+SemiRetired - will not drive for full time / insecure entries
+
+Eccentric - slightly higher fame gain
+Relatable - slightly higher fame / rep gain
+ShortTemper - slightly higher fame / lower rep gain / slightly higher morale decrease
+Boring - lower fame gain
+Scrappy - slightly higher fame gain / small chance for either slight increase in skill or speed / slightly higher morale increase / lower morale decrease
+Reserved - slightly higher rep gain / small chance for slight increase in skill
+Gruff - slightly higher rep gain / small chance for slight increase in skill / lower morale decrease
+
+BigEgo
+
+Loyal - less likely to lose Morale / Relations
+Journeyman - more likely to lose Morale / Relations
+
+Solid - slightly higher morale increase / lower decrease
+Insecure - slightly lower morale increase / higher decrease
+Emotional - slightly higher morale increase / decrease
+Numb - slightly lower morale increase / decrease
+
+Comfortable - small chance for either slight increase in skill or speed
+Confident - higher chance for either slight increase in skill or speed
+Unsettled - small chance for either slight decrease in skill or speed
+Overwhelmed - higher chance for either moderate decrease in skill or speed
+
+PersonalProblems - higher chance for either moderate decrease in skill or speed
+
+Concussion - lower skill
+TornLigament - lower speed / slightly lower skill
+BrokenBone - out
+SpinalInjury - out / major consequences
+	HadSpinalInjury
+NerveDamage - out / moderate consequences
+	HasNerveDamage
+Impaled - out / major consequences
+	WasImpaled
+HeadTrauma - out / major consequences
+	HadHeadTrauma
+
+FoodPoisoning - lower speed / lower skill
+CommonCold - slightly lower speed / slightly lower skill
+Influenza - lower speed / slightly lower skill
+BloodClots - out

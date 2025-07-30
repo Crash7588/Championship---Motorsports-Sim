@@ -1,0 +1,10 @@
+Axxelo		- modern, indicator on side of headlight
+Capitol		- modern, indicator below headlight
+Brawny		- modern, indicator "surrounding" headlight
+Stodgey		- older
+Sherpa		- modern, oval headlights
+Lux			- modern, sleeker oval headlights
+
+Handmade
+Plymouth
+Shyster
